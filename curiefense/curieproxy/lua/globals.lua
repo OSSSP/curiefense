@@ -4,14 +4,14 @@ local cjson       = require "cjson"
 local json_safe   = require "cjson.safe"
 local socket      = require "socket"
 local lfs         = require "lfs"
-local iptools     = require "iptools"
+local curiefense  = require "curiefense"
 local luahs       = require "luahs"
 local preplists   = require "lua.preplists"
 
 local gen_list_entries  = preplists.gen_list_entries
 local json_decode       = json_safe.decode
 
-local test_regex = iptools.test_regex
+local test_regex = curiefense.test_regex
 
 -- global datasets
 
@@ -19,7 +19,7 @@ URLMap          = nil
 ACLProfiles     = nil
 WAFProfiles     = nil
 WAFSignatures   = nil
--- WAFRustSignatures   = iptools.new_sig_set()
+-- WAFRustSignatures   = curiefense.new_sig_set()
 -- hyperscan
 WAFHScanDB      = nil
 WAFHScanScratch = nil

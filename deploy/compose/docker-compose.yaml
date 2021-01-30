@@ -24,6 +24,19 @@ services:
       - curieproxysslcrt
       - curieproxysslkey
 
+  curieproxyngx:
+    container_name: curieproxyngx
+    image: "curiefense/curieproxy-nginx:${DOCKER_TAG}"
+    restart: always
+    volumes:
+      - curieproxy_config:/config
+    networks:
+      curiemesh:
+        aliases:
+          - curieproxyngx
+    ports:
+      - "30082:30082"
+
   confserver:
     container_name: confserver
     hostname: confserver
