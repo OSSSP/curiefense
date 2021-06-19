@@ -71,7 +71,7 @@ function log(handle)
     local request_map = response.request_map
 
     local body_len = handle.ctx.body_len
-    local req_len = handle.var.request_length 
+    local req_len = handle.var.request_length
 
     local raw_status = handle.var.status
     local status = tonumber(raw_status) or raw_status
@@ -123,7 +123,7 @@ function log(handle)
     req.upstream = {}
     req.upstream.cluster = handle.var.proxy_host
     req.upstream.remoteaddress = handle.var.upstream_addr
-    req.upstream.remoteaddressport = handle.var.proxy_port
+    req.upstream.remoteaddressport = tonumber(handle.var.proxy_port) or handle.var.proxy_port
 
     -- TLS: TODO, need to see the corresponding envoy input
     req.tls = {
